@@ -13,5 +13,8 @@
 #include <dirent.h>
 #include <signal.h>
 
+/* helper functions */
+int _strlen(char *str);
+char *_strcpy(char *dest, char *src);
 
 #endif
