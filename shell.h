@@ -27,4 +27,14 @@ int t_size(char *str, char delm);
 char *ignore_delm(char *str, char delm);
 char **_strtok(char *str, char *delm);
 
+/* getline custom function */
+size_t _getline(char **str);
+
+
+
+
+
+
+
+
 #endif
