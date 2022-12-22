@@ -21,5 +21,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 
+/* strtok custom function */
+int t_strlen(char *str, int pos, char delm);
+int t_size(char *str, char delm);
+char *ignore_delm(char *str, char delm);
+char **_strtok(char *str, char *delm);
 
 #endif

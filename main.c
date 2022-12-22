@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ *main- entry point into the program
+ *Description: this function is just for testing
+ *Return: not fixed
+ */
 int main(void)
 {
 	char *str = "this";
