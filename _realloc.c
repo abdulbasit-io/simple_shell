@@ -1,4 +1,12 @@
 #include "shell.h"
+/**
+ *_realloc - a custom realloc
+ *@ptr: the previously malloced variable
+ *@old_size: the previous size of ptr
+ *@new_size: the new size to allocate
+ *
+ *Return: a pointer to the newly allocated memory
+ */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {

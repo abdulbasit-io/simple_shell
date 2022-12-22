@@ -5,7 +5,7 @@
  *@dest: the string to be appended to
  *@src: the string to append
  *
- *Return: dest
+ *Return: a pointer to concatenated variable
  */
 
 char *_strcat(char *dest, char *src)
@@ -25,7 +25,7 @@ char *_strcat(char *dest, char *src)
 	if (d == NULL || s == NULL)
 		return (NULL);
 
-	d = _strcpy(d , dest);
+	d = _strcpy(d, dest);
 	s = _strcpy(s, src);
 
 	d = _realloc(d, d_len, sizeof(char) * total_len + 1);
