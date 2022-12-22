@@ -2,12 +2,13 @@
 
 int main(void)
 {
-	char *str = " this is a string";
-	char *str1 = NULL;
+	char *str = "this";
+	char *str1 = "this is";
+	int s;
 
-	str1 = _strdup(str);
+	s = _strcmp(str, str1);
 
-	printf("str1: %s\n", str1);
+	printf("str1: %d\n", s);
 	return (0);
 
 }

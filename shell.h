@@ -19,5 +19,7 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
+
 
 #endif
