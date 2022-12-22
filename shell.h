@@ -13,6 +13,19 @@
 #include <dirent.h>
 #include <signal.h>
 
+/**
+ * struct list-  linked list for environmental variables
+ *@var: holds environmental variable string
+ *@next: points to the next node
+ */
+
+typedef struct list
+{
+	char *var;
+	struct list *next;
+} list_t;
+
+
 /* helper functions */
 int _strlen(char *str);
 char *_strcpy(char *dest, char *src);
@@ -30,7 +43,8 @@ char **_strtok(char *str, char *delm);
 /* getline custom function */
 size_t _getline(char **str);
 
-
+/* frees malloc arrays */
+void free_double_ptr(char **str);
 
 
 
