@@ -46,9 +46,11 @@ size_t _getline(char **str);
 /* frees malloc arrays */
 void free_double_ptr(char **str);
 
-
-
-
+/*Linkedlist helper functions */
+size_t print_list(list_t *h);
+list_t *add_node_end(list_t **head, char *str);
+int delete_nodeint_at_index(list_t **head, int index);
+void free_linked_list(list_t *list);
 
 
 #endif
