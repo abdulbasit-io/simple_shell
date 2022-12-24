@@ -102,7 +102,7 @@ char **_strtok(char *str, char *delm)
 			toks[p][i] = '\0';/* add null terminator */
 			t++;
 		}
-		if (s_idx < e_idx && (str[s_idx] != del && str[s_idx] != '\0'))
+		if (s_idx < e_idx && (str[s_idx + 1] != del && str[s_idx + 1] != '\0'))
 			p++;
 		s_idx++;
 	}
