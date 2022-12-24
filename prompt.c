@@ -31,7 +31,7 @@ int built_in(char **token, list_t *env, int num, char **command)
 	else if (_strcmp(token[0], "env") == 0)
 	{
 		_env(token, env);
-		i = 1;
+		i = 0;
 	}
 	/* if user types "cd" , it will change directory */
 	else if (_strcmp(token[0], "cd") == 0)
@@ -42,13 +42,13 @@ int built_in(char **token, list_t *env, int num, char **command)
 	else if (_strcmp(token[0], "setenv") == 0)
 	{
 		_setenv(&env, token);
-		i = 1;
+		i = 0;
 	}
 	/* if user types "setenv", remove linked list node */
 	else if (_strcmp(token[0], "unsetenv") == 0)
 	{
 		_unsetenv(&env, token);
-		i = 1;
+		i = 0;
 	}
 	return (i);
 }
