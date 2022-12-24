@@ -69,6 +69,10 @@ char *_which(char *str, list_t *env);
 int __exit(char **str, list_t *env, int num, char **command);
 void c_exit(char **str, list_t *env);
 int _execve(char **s, list_t *env, int num);
+void non_interactive(list_t *env);
+int prompt(char **en);
+int built_in(char **token, list_t *env, int num, char **command);
+char *ignore_space(char **str);
 
 
 /* Error messages functions*/
