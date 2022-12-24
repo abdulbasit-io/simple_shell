@@ -1,18 +1,18 @@
 #include "shell.h"
+
 /**
- *main - entry point into the program
- *Description: this function is just for testing
- *Return: not fixed
+ * main - creates a simple shell
+ * @ac: argument count
+ * @av: argument vectors
+ * @env: environmental variables
+ * Return: 0 on success
  */
-int main(void)
+int main(int ac, char **av, char **env)
 {
-	char *str = "this";
-	char *str1 = "this is";
-	int s;
+	(void)ac;
+	(void)av;
 
-	s = _strcmp(str, str1);
+	prompt(env);
 
-	printf("str1: %d\n", s);
 	return (0);
-
 }

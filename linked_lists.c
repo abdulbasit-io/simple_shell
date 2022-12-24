@@ -96,16 +96,16 @@ int delete_nodeint_at_index(list_t **head, int index)
 		return (1);
 	}
 	count = 1;
-	n_head = *head;
+	n_header = *head;
 	while (count < index)
 	{
-		if (n_head == NULL)
+		if (n_header == NULL)
 			return  (-1);
-		n_head = n_head->next;
+		n_header = n_header->next;
 		count++;
 	}
-	holder = n_head->next;
-	n_head = holder->next;
+	holder = n_header->next;
+	n_header = holder->next;
 	free(holder->var);
 	free(holder);
 	return (1);

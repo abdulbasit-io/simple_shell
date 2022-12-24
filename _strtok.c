@@ -54,7 +54,7 @@ int t_size(char *str, char delm)
 
 char *ignore_delm(char *str, char delm)
 {
-	while (str == delm)
+	while (*str == delm)
 		str++;
 	return (str);
 }
@@ -104,7 +104,7 @@ char **_strtok(char *str, char *delm)
 		}
 		if (s_idx < e_idx && (str[s_idx] != del && str[s_idx] != '\0'))
 			p++;
-		s++;
+		s_idx++;
 	}
 	p++;
 	toks[p] = NULL; /* sets last array ptr to null */

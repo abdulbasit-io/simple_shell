@@ -34,6 +34,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 char *int_to_string(int number);
+int c_atoi(char *s);
 
 
 /* strtok custom function */
@@ -60,14 +61,20 @@ int _env(char **str, list_t *env);
 
 /* advanced functions */
 int _cd(char **str, list_t *env, int num);
-char *get_env(char *str, list_T *env);
+char *get_env(char *str, list_t *env);
+int _unsetenv(list_t **env, char **str);
+int _setenv(list_t **env, char **str);
+int find_env(list_t *env, char *str);
+char *_which(char *str, list_t *env);
+int __exit(char **str, list_t *env, int num, char **command);
+void c_exit(char **str, list_t *env);
+int _execve(char **s, list_t *env, int num);
 
 
-
-
-
-
-
+/* Error messages functions*/
+void not_found(char *str, int c_n, list_t *env);
+void cant_cd_to(char *str, int c_n, list_t *env);
+void illegal_number(char *str, int c_n, list_t *env);
 
 
 
