@@ -1,24 +1,23 @@
 #include "shell.h"
 
 /**
- *_strcpy- copies the content of string to another string
- *including the null terminator
- *@dest: the destinatino to copy to
- *@src: the source to copy from
- *
- *Return: dest- a copy of the source
+ * _strcpy - copies the string pointed to by src,
+ * including the terminating null byte (\0),
+ * to the buffer pointed to by dest
+ * @dest: copy source to this buffer
+ * @src: this is the source to copy
+ * Return: copy of original source
  */
 
 char *_strcpy(char *dest, char *src)
 {
 	int i, len;
 
-	len = _strlen(src);
+	for (len = 0; src[len] != '\0'; len++)
+		;
 
-	for (i = 0; i < len; i++)
-		*(dest + i) = *(src + i);
+	for (i = 0; i <= len; i++)
+		dest[i] = src[i];
 
 	return (dest);
-
 }
-

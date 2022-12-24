@@ -1,11 +1,11 @@
 #include "shell.h"
+
 /**
- *_realloc - a custom realloc
- *@ptr: the previously malloced variable
- *@old_size: the previous size of ptr
- *@new_size: the new size to allocate
- *
- *Return: a pointer to the newly allocated memory
+ * _realloc - allocate memory and set all values to 0
+ * @ptr: pointer to the memory previously allocated (malloc(old_size))
+ * @old_size: size previously allocated
+ * @new_size: new size to reallocate
+ * Return: pointer to reallocated memory
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
@@ -13,17 +13,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	void *p;
 	unsigned int i;
 
-	/* frees memory if the new_size to realloc is 0 */
-	if (new_size == 0 && ptr != NULL)
+	if (new_size == 0 && ptr != NULL) /* free memory if reallocate 0 */
 	{
 		free(ptr);
 		return (NULL);
 	}
-	/* return ptr if reallocating same old size */
-	if (new_size == old_size)
+
+	if (new_size == old_size) /* return ptr if reallocating same old size */
 		return (ptr);
-	/* malloc new_size if ptr is originally NULL */
-	if (ptr == NULL)
+
+	if (ptr == NULL) /* malloc new size if ptr is originally null */
 	{
 		p = malloc(new_size);
 		if (p == NULL)
@@ -32,14 +31,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (p);
 	}
 
-	/* if ptr != NULL and new_size > old_size */
-	p = malloc(new_size);
+	p = malloc(new_size); /* malloc and check error */
 	if (p == NULL)
 		return (NULL);
 
-	/* now fill up existing spaces, till maximum value of old_size */
+	/* fill up values up till minimum of old or new size */
 	for (i = 0; i < old_size && i < new_size; i++)
 		*((char *)p + i) = *((char *)ptr + i);
-	free(ptr);
+	free(ptr); /* free old ptr */
+
 	return (p);
 }

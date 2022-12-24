@@ -1,46 +1,45 @@
 #include "shell.h"
 
 /**
- *_getline - stores user's command into a malloc buffer
- *@str: the buffer
- *Return:number of characters read
+ * get_line - stores into malloced buffer the user's command into shell
+ * @str: buffer
+ * Return: number of characters read
  */
-
-size_t _getline(char **str)
+size_t get_line(char **str)
 {
-	ssize_t i = 0, size = 0, j = 0, reading = 0, n = 0;
+	ssize_t i = 0, size = 0, t = 0, t2 = 0, n = 0;
 	char buff[1024];
 
-	/* read while there is stdin greater than buff size; -1 to add '\0' */
-	while (reading == 0 && (i = read(STDIN_FILENO, buff, 1024 - 1)))
+	/* read while there's stdin greater than buffsize; -1 to add a '\0' */
+	while (t2 == 0 && (i = read(STDIN_FILENO, buff, 1024 - 1)))
 	{
-		if (i == -1) /* check for error in read */
+		if (i == -1) /* check if read errored */
 			return (-1);
 
-		buff[i] = '\0';/* terminate buff with '\0' */
-		n = 0;
+		buff[i] = '\0'; /* terminate buff with \0 to use with _strcat */
+
+		n = 0; /* last loop if \n is found in the stdin read */
 		while (buff[n] != '\0')
 		{
 			if (buff[n] == '\n')
-				reading = 1; /* stops reading from stdin */
+				t2 = 1;
 			n++;
 		}
-		/* copies buff to *str */
-		if (j == 0)
+
+		/* copy what's read to buff into get_line's buffer */
+		if (t == 0) /* malloc the first time */
 		{
 			i++;
 			*str = malloc(sizeof(char) * i);
 			*str = _strcpy(*str, buff);
 			size = i;
-			j = 1; /* limit malloc to first time */
+			t = 1;
 		}
-		else
+		else /* _realloc via _strcat with each loop */
 		{
-			/* realloc via _strcat for each loop */
-			size += 1;
+			size += i;
 			*str = _strcat(*str, buff);
 		}
 	}
 	return (size);
 }
-

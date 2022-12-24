@@ -24,7 +24,7 @@ void non_interactive(list_t *env)
 	int command_line_no = 0, exit_stat = 0;
 	char *command = NULL, *n_command = NULL, **n_line, **token;
 
-	i = _getline(&command);
+	i = get_line(&command);
 	if (i == 0)
 	{
 		free(command);
@@ -32,7 +32,7 @@ void non_interactive(list_t *env)
 	}
 	n_command = command;
 	command = c_ignore(command);
-	n_line = _strtok(command, "\n"); /* tokenize each command string */
+	n_line = _str_tok(command, "\n"); /* tokenize each command string */
 	if (n_command != NULL)
 		free(n_command);
 	n = 0;
@@ -40,7 +40,7 @@ void non_interactive(list_t *env)
 	{
 		command_line_no++;
 		token = NULL; /* tokenize each command in array of commands */
-		token = _strtok(n_line[n], " ");
+		token = _str_tok(n_line[n], " ");
 		exit_stat = built_in(token, env, command_line_no, n_line);
 		if (exit_stat)
 		{

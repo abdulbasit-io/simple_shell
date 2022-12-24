@@ -81,7 +81,7 @@ int _setenv(list_t **env, char **str)
 	index = find_env(*env, str[1]); /* find idx to traverse to node */
 	if (index == -1)
 	{
-		add_node_end(env, cat); /* doesn't exist? create env var */
+		add_end_node(env, cat); /* doesn't exist? create env var */
 	}
 	else
 	{

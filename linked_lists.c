@@ -1,15 +1,15 @@
 #include "shell.h"
 
 /**
- *print_list- prints linked lists
- *@h: the linked list to be printed
- *Return: the number of lists printed
+ * print_list - _print linked list
+ * @h: linked list
+ * Return: size of linked list
  */
-
 size_t print_list(list_t *h)
 {
 	list_t *c_list = h;
-	int count = 0, c = 0;
+	int count = 0;
+	int c = 0;
 
 	if (h == NULL)
 		return (0);
@@ -35,20 +35,18 @@ size_t print_list(list_t *h)
 }
 
 /**
- *add_node_end- adds node to the end  of a linked list
- *@head: a pointer to the head of linked list
- *@str: the value to be stored in the new list
- *Return: a pointer to the new linked list
+ * add_end_node - add node to end of linked list
+ * @head: pointer to head of linked list
+ * @str: data to new node
+ * Return: pointer to new linked list
  */
-
-list_t *add_node_end(list_t **head, char *str)
+list_t *add_end_node(list_t **head, char *str)
 {
 	list_t *new;
 	list_t *holder;
 
 	if (head == NULL || str == NULL)
-		return (NULL);
-
+		return (NULL); /* check if address of head is null */
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
@@ -73,15 +71,14 @@ list_t *add_node_end(list_t **head, char *str)
 }
 
 /**
- *delete_nodeint_at_index- removes node at an index
- *@head: a pointer to the linkedlist head address
- *@index: index to remove
- *Return: 1 on success, 0 on failure
+ * delete_nodeint_at_index - removing node at index
+ * @head: input head address
+ * @index: input index
+ * Return: 1 if success, -1 if fail
  */
-
 int delete_nodeint_at_index(list_t **head, int index)
 {
-	list_t *n_header;
+	list_t *n_head;
 	list_t *holder;
 	int count = 0;
 
@@ -96,27 +93,25 @@ int delete_nodeint_at_index(list_t **head, int index)
 		return (1);
 	}
 	count = 1;
-	n_header = *head;
+	n_head = *head;
 	while (count < index)
 	{
-		if (n_header == NULL)
-			return  (-1);
-		n_header = n_header->next;
+		if (n_head == NULL)
+			return (-1);
+		n_head = n_head->next;
 		count++;
 	}
-	holder = n_header->next;
-	n_header = holder->next;
+	holder = n_head->next;
+	n_head->next = holder->next;
 	free(holder->var);
 	free(holder);
 	return (1);
-
 }
 
 /**
- *free_linked_list- frees linked list
- *@list: the linked list
+ * free_linked_list - frees linked list
+ * @list: linked list
  */
-
 void free_linked_list(list_t *list)
 {
 	list_t *holder;
@@ -128,5 +123,5 @@ void free_linked_list(list_t *list)
 		free(holder->var);
 		free(holder);
 	}
-}
 
+}
